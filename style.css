@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+:root{
+    font-family: 'Rubik', sans-serif;
+}
+
+header{
+    padding: 20px;
+    background-color: black;
+}
+header>nav>ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    
+}
+header>nav>ul>li>a{
+text-decoration: none;
+color: white;
+font-weight: semibold;
+}
+header>nav>ul>li>img{
+    width: 11vw;
+}
+main{
+    height: max-content;
+    background: url(/assests/main.jpg);
+    height: 630px;
+    width: 100%;
+    background-size: cover;
+
+}
+main>section{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 13%;
+}
+main>section>div>h1{
+color: white;
+font-size: 30px;
+}
+main>section>div>p{
+    color: white;
+}
+main>section>div>button{
+    padding: 12px;
+    border: none;
+    width: 100%;
+}
+section{
+    text-align: center;
+}
+section>section{
+    display: flex;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+section>section>div{
+    margin: 2%;
+    padding: 10px;
+    flex: 1;
+}
+section>section img{
+    width: 100%;
+}
+section>section>div>button{
+    border: none;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    margin-top: 10%;
+}
+footer{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    text-align: center
+
+}
+footer div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+footer>div>div>img{
+    width: 20px;
+    color: white;
+    margin: 10px;
+}
+footer p{
+    color: white;
+}
+footer>div section{
+    text-align: left;
+    padding: 10px;
+}
+
+footer>div>section #firstFooterSection{
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+footer>div>section #firstFooterSection>img{
+    width:45px;
+    height: 45px;
+}
+footer h3{
+    color: white;
+}
+footer>div>section{
+    flex: 1;
+    margin: 20px;
+}
+footer ul{
+    list-style: none;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+footer h3#bottomHeader{
+    margin-left: 40px;
+}
