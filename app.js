@@ -66,3 +66,31 @@ function setData() {
   document.getElementById("coverImg").scr = data.picture;
   document.getElementById("description").innerHTML = data.Description;
 }
+
+
+function setDetails() {
+  console.log(movieArray[0].showTimeSection.time.time1)
+  for (i = 0; i < 3; i++) {
+    for (k = 0; k < 3; k++) {
+      // console.log("I buuuu " + i)
+      // console.log("K buuuu " + k)
+      var button = document.createElement('button');
+      var text = document.createTextNode(movieArray[i].showTimeSection.time[k]);
+      button.appendChild(text);
+      timesDiv.appendChild(button);
+    }
+    const lineBreak = document.createElement('br');
+    timesDiv.appendChild(lineBreak);
+    
+  }
+}
+
+
+/*
+console.log("I buuuu " + i)
+var button = document.createElement('button');
+var text = document.createTextNode("button");
+button.appendChild(text);
+timesDiv.appendChild(button);
+*/
+

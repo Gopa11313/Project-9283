@@ -238,3 +238,53 @@ main#forPurchaseAndDetails>div>p{
     text-align: justify;
     
 }
+
+
+#MovieDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-top: 1vw;
+}
+
+#SectionDetails{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#MovieDetails p{
+    margin-left: px;
+    /* text-align: center; */
+}
+
+
+
+#MovieTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding-top: 1vw;
+}
+
+ 
+
+#MovieTitle>p{
+    flex: 1;
+}
+
+section>section>div>p{
+
+display:inline;
+
+}
+
+
+
+#timesDiv>button{ 
+    width: 30%;
+}
+
+
