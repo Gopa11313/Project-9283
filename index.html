@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <title>Document</title>
+    <title>Paramounts Picture</title>
 </head>
 <header>
     <nav>
         <ul>
-            <li><a href="#"> Home</a></li>
+            <li><a href="index.html"> Home</a></li>
             <li> <a href="#">Now Playing</a></li>
             <li><img src="/assests/logo.png" alt="Logo image"></li>
             <li><a href="#">Buy Tickets</a></li>
@@ -19,7 +19,7 @@
         </ul>
     </nav>
 </header>
-<main>
+<main id="homeMain">
     <section>
         <p></p>
         <div>
@@ -34,18 +34,20 @@
 <section>
 
     <h1>All Movies</h1>
-    <section>
+    <section id="movieSection">
         <div>
             <img src="/assests/the_dark_knight.jpg">
-            <button id="movieBtn">View Details</button>
+            <button id="movieBtn" type="button" data-movieName="The_Dark_Knight"><a data-movieName="The_Dark_Knight"
+                    href="purchase.html">View
+                    Details</a></button>
         </div>
         <div>
             <img src="/assests/tenet.jpg">
-            <button id="movieBtn">View Details</button>
+            <button id="movieBtn" data-movieName="Tenet" type="button">View Details</button>
         </div>
         <div>
             <img src="/assests/movie3.jpeg">
-            <button id="movieBtn">View Details</button>
+            <button id="movieBtn" data-movieName="Venom" type="button">View Details</button>
         </div>
 
     </section>
@@ -117,6 +119,7 @@
     </div>
     <p>@2023 Copyright. Paraamounts Pictures</p>
 </footer>
+<script src="app.js"></script>
 
 <body>
 

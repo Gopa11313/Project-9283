@@ -5,11 +5,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Purchase Ticket</title>
 </head>
 
-<body>
+<body onload="setData()">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li> <a href="#">Now Playing</a></li>
+                <li><img src="/assests/logo.png" alt="Logo image"></li>
+                <li><a href="#">Buy Tickets</a></li>
+                <li><a href="#">Location</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="forPurchaseAndDetails">
+        <div style="flex: 1.5;">
+            <label>Tickets</label>
+            <div><label>Tickets</label>
+                <input type="radio">
+            </div>
+            <div><label>Tickets</label>
+                <input type="radio">
+            </div>
+            <label>Pay Information</label>
+            <div>
+                <input type="radio">
+                <label>Paypal</label>
+                <img src="/assests/paypal.svg">
+            </div>
+            <div>
+                <input type="radio">
+                <label>Master Card</label>
+                <img src="/assests/credit-card-fill.svg">
+            </div>
+            <button>Pay now</button>
+        </div>
+        <div>
+            <img id="coverImg">
+            <h3>Tenent</h3>
+            <p id="description">
+            </p>
+            <p>Show Time</p>
+            <p></p>
+            <h4>Order summary</h4>
+            <p>ticket types and quantity:2</p>
+            <p>price of tickets: $40</p>
+            <p>subtotal:$80</p>
+            <p>fees:$5</p>
+            <p>total to pay: $85</p>
 
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>Get connected with us on social networks:</p>
+            <div id="socialMediaImages">
+                <img src="/assests/facebook.svg">
+                <img src="/assests/twitter.svg">
+                <img src="/assests/google.svg">
+                <img src="/assests/instagram.svg">
+                <img src="/assests/linkedin.svg">
+                <img src="/assests/github.svg">
+            </div>
+        </div>
+        <div>
+            <section>
+                <div id="firstFooterSection">
+                    <img src="/assests/logo.png">
+                    <h3>Paramount Pictures</h3>
+                </div>
+                <p>Paramount Pictures Corporation is an American film and television production and distribution company
+                    and
+                    the main namesake division of Paramount Global (formerly ViacomCBS).</p>
+            </section>
+            <section>
+                <h3 id="bottomHeader">Branches</h3>
+                <ul>
+                    <li><a href="#">North York</a></li>
+                    <li><a href="#">Fintch</a></li>
+                    <li><a href="#">Scarborough</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3 id="bottomHeader">Branches</h3>
+                <ul>
+                    <li><a href="#">North York</a></li>
+                    <li><a href="#">Fintch</a></li>
+                    <li><a href="#">Scarborough</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3 id="bottomHeader">Branches</h3>
+                <ul>
+                    <li><a href="#">North York</a></li>
+                    <li><a href="#">Fintch</a></li>
+                    <li><a href="#">Scarborough</a></li>
+                </ul>
+
+        </div>
+        <p>@2023 Copyright. Paraamounts Pictures</p>
+    </footer>
+    <script src="app.js"></script>
 </body>
 
 </html>

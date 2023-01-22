@@ -1,29 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rubik:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
-:root{
+
+:root {
     font-family: 'Rubik', sans-serif;
 }
 
-header{
+header {
     padding: 20px;
     background-color: black;
 }
-header>nav>ul{
+
+header>nav>ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    
+
 }
-header>nav>ul>li>a{
-text-decoration: none;
-color: white;
-font-weight: semibold;
+
+header>nav>ul>li>a {
+    text-decoration: none;
+    color: white;
+    font-weight: semibold;
 }
-header>nav>ul>li>img{
+
+header>nav>ul>li>img {
     width: 11vw;
 }
 
 
-main{
+main#homeMain {
     height: max-content;
     background: url(/assests/main.jpg);
     height: 630px;
@@ -31,43 +35,56 @@ main{
     background-size: cover;
 
 }
-main>section{
+
+main#homeMain>section {
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 13%;
 }
-main h1{
-color: white;
-font-size: 35px;
-font-weight: 500;
+
+main#homeMain h1 {
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
 }
-main>section>div{
+
+main#homeMain>section>div {
     padding: 20px;
 }
-main>section>div>p{
+
+main#homeMain>section>div>p {
     color: white;
     margin: 30px;
 }
-button{
+
+button,
+button>a {
     padding: 15px;
     border: none;
     border-radius: 3px;
     width: 100%;
+    text-decoration: none;
+
 }
 
-button:hover{
+button>a {
+    color: white;
+}
+
+button:hover {
     background-color: black;
     color: white;
 }
 
 
 
-section{
+section {
     text-align: center;
 }
-section>section{
+
+section>section {
     display: flex;
     width: 70%;
     margin-left: auto;
@@ -75,88 +92,149 @@ section>section{
     flex-direction: row;
     justify-content: space-evenly;
 }
-section>section #mapSection{
+
+section>section #mapSection {
     margin-top: 60px;
 }
-section>section>div>iframe{
+
+section>section>div>iframe {
     height: 400px;
     width: 100%;
 }
-section>section>div{
+
+section>section>div {
     margin: 2%;
     padding: 10px;
     flex: 1;
 }
-section>section img{
+
+section>section img {
     width: 100%;
 }
-button#movieBtn{
+
+button#movieBtn {
     background-color: black;
     color: white;
     margin-top: 10%;
 }
-button#movieBtn:hover{
+
+button#movieBtn:hover {
     background-color: #90EE90;
     color: black;
 }
-#segmentSection{
+
+#segmentSection {
     height: 2px;
     background-color: black;
 }
 
 
 
-footer{
+footer {
     background-color: black;
     display: flex;
     flex-direction: column;
     padding: 20px;
     text-align: center;
-    margin-top:10px;
+    margin-top: 10px;
 
 }
-footer div{
+
+footer div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-footer>div>div>img{
+
+footer>div>div>img {
     width: 20px;
     color: white;
     margin: 10px;
 }
-footer p{
+
+footer p {
     color: white;
 }
-footer>div section{
+
+footer>div section {
     text-align: left;
     padding: 10px;
 }
 
-footer>div>section #firstFooterSection{
+footer>div>section #firstFooterSection {
     flex: 2;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-footer>div>section #firstFooterSection>img{
-    width:45px;
+
+footer>div>section #firstFooterSection>img {
+    width: 45px;
     height: 45px;
 }
-footer h3{
+
+footer h3 {
     color: white;
 }
-footer>div>section{
+
+footer>div>section {
     flex: 1;
     margin: 20px;
 }
-footer ul{
+
+footer ul {
     list-style: none;
 }
-footer a{
+
+footer a {
     text-decoration: none;
     color: white;
 }
-footer h3#bottomHeader{
+
+footer h3#bottomHeader {
     margin-left: 40px;
+}
+
+main#forPurchaseAndDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 40px;
+}
+
+main#forPurchaseAndDetails>div {
+    text-align: center;
+    margin: 60px;
+    padding: 50px;
+    flex: 1;
+
+}
+
+main#forPurchaseAndDetails>div>label {
+    padding: 15px;
+    display: block;
+    border: 2px solid black;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+main#forPurchaseAndDetails>div>div {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px dotted black;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+main#forPurchaseAndDetails>div>img{
+    width: 100%;
+    height: 20%;
+    
+}
+main#forPurchaseAndDetails>div>p{
+    text-align: justify;
+    
 }
