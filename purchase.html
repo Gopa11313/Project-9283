@@ -24,42 +24,56 @@
     <main id="forPurchaseAndDetails">
         <div style="flex: 1.5;">
             <label>Tickets</label>
-            <div><label>Tickets</label>
-                <input type="radio">
+            <div><label>General Admission - $12.00</label>
+                <input id="generalFare" type="number" style="width: 10%;" onchange="calculate()">
             </div>
-            <div><label>Tickets</label>
-                <input type="radio">
+            <div><label>Students and Seniors - $10.00</label>
+                <input id="studentsFare" type="number" style="width: 10%;" onchange="calculate()">
             </div>
             <label>Pay Information</label>
             <div>
-                <input type="radio">
+                <input type="radio" id="paypalRadio" onclick="showPaypal()" name="paymentMethod">
                 <label>Paypal</label>
                 <img src="/assests/paypal.svg">
             </div>
+            <section id="paypalSection">
+                <div id="paypalEmailSection">
+                    <input type="email" id="paypalEmail" placeholder="Paypal Email">
+                </div>
+                <div id="paypalPasswordSection">
+                    <input type="email" id="paypalPassword" placeholder="Paypal Password">
+                </div>
+            </section>
             <div>
-                <input type="radio">
+                <input id="creditRadio" type="radio" name="paymentMethod" onclick="doCredit()">
                 <label>Master Card</label>
                 <img src="/assests/credit-card-fill.svg">
             </div>
-            <button>Pay now</button>
+            <section id="creditCardSection">
+                <div id="creditcardDiv">
+                    <input type="text" id="creditCardnum" placeholder="Credit Card Number">
+                </div>
+
+                <div id="cvvDiv"><input type="text" placeholder="CVV"></div>
+            </section>
+            <button id="movieBtn" style="width: 40%;"><a>Pay now</a></button>
         </div>
-        <div>
+        <div id="secondDiv">
             <img id="coverImg">
             <h3>Tenent</h3>
             <p id="description">
             </p>
-            <p>Show Time</p>
+            <p id="showTime"></p>
             <p></p>
             <h4>Order summary</h4>
-            <p>ticket types and quantity:2</p>
-            <p>price of tickets: $40</p>
-            <p>subtotal:$80</p>
-            <p>fees:$5</p>
-            <p>total to pay: $85</p>
+            <p id="ticketCount">ticket types and quantity:0</p>
+            <p>General Admission $12.00 & Students and Seniors $10.00</p>
+            <p id="subtotal">subtotal:$00</p>
+            <p>Fees:$5</p>
+            <p id="total">total to pay: $00</p>
 
         </div>
     </main>
-
     <footer>
         <div>
             <p>Get connected with us on social networks:</p>

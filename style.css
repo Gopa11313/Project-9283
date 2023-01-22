@@ -238,3 +238,37 @@ main#forPurchaseAndDetails>div>p{
     text-align: justify;
     
 }
+
+#paypalEmail,#paypalPassword{
+    font-size: 17px;
+    width: 100%;
+    border: 0;
+    text-align: center;
+}
+#paypalEmail::placeholder,#paypalPassword::placeholder{
+    color: black;
+}
+
+#paypalEmailSection,#paypalPasswordSection{
+    padding: 15px;
+    display: block;
+    border: 2px solid black;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    
+}
+#forPurchaseAndDetails>div>section>div{
+    padding: 15px;
+    display: block;
+    border: 2px solid black;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+#forPurchaseAndDetails>div>section>div>input{
+    font-size: 17px;
+    width: 100%;
+    border: 0;
+    text-align: center;
+}

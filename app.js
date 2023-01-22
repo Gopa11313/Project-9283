@@ -1,4 +1,11 @@
 var movieSection = document.getElementById("movieSection");
+var paypalEmailSection = document.getElementById("paypalEmailSection");
+var paypalPasswordSection = document.getElementById("paypalPasswordSection");
+
+var creditcardDiv = document.getElementById("creditcardDiv");
+var cvvDiv = document.getElementById("cvvDiv");
+const generalFare = 12.0;
+const studentAndSeniorsFare = 12.0;
 var movieArray = [
   {
     name: "The Dark Knight",
@@ -65,4 +72,62 @@ function setData() {
   console.log("cliked Item:" + data.picture);
   document.getElementById("coverImg").scr = data.picture;
   document.getElementById("description").innerHTML = data.Description;
+  paypalEmailSection.style.display = "none";
+  paypalPasswordSection.style.display = "none";
+  creditcardDiv.style.display = "none";
+  cvvDiv.style.display = "none";
+}
+
+function showPaypal() {
+  var paypal = document.getElementById("paypalRadio");
+  if (paypal.checked == true) {
+    paypalEmailSection.style.display = "block";
+    paypalPasswordSection.style.display = "block";
+    creditcardDiv.style.display = "none";
+    creditcardDiv.style.display = "none";
+  } else {
+    paypalEmailSection.style.display = "none";
+    paypalPasswordSection.style.display = "none";
+  }
+}
+
+function doCredit() {
+  var creditRadio = document.getElementById("creditRadio");
+  if (creditRadio.checked == true) {
+    creditcardDiv.style.display = "block";
+    cvvDiv.style.display = "block";
+    paypalEmailSection.style.display = "none";
+    paypalPasswordSection.style.display = "none";
+  } else {
+    creditcardDiv.style.display = "none";
+    creditcardDiv.style.display = "none";
+  }
+}
+
+function calculate() {
+  console.log("HEre");
+  var genralCount = document.getElementById("generalFare").value;
+  var studentCount = document.getElementById("studentsFare").value;
+  var ticketCount = genralCount + studentCount;
+  var ticketsType = "";
+  if (genralCount > 0) {
+    ticketsType += " General ticket :" + genralCount;
+  }
+  if (studentCount > 0) {
+    ticketsType += " Student And Seniors:" + studentCount;
+  }
+
+  if (generalFare == "") {
+    genralCount = 0.0;
+  }
+  if (studentCount == "") {
+    studentCount = 0.0;
+  }
+  const subTotal =
+    generalFare * genralCount + studentAndSeniorsFare * studentCount;
+  const total = subTotal + 5;
+  document.getElementById("ticketCount").innerHTML = ticketsType;
+  document.getElementById("subtotal").innerHTML =
+    "Price of tickets:$" + subTotal;
+  document.getElementById("total").innerHTML = "Total:$" + total;
 }
