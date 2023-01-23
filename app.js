@@ -1,4 +1,12 @@
 var movieSection = document.getElementById("movieSection");
+var paypalEmailSection = document.getElementById("paypalEmailSection");
+var paypalPasswordSection = document.getElementById("paypalPasswordSection");
+
+var creditcardDiv = document.getElementById("creditcardDiv");
+var cvvDiv = document.getElementById("cvvDiv");
+const generalFare = 12.0;
+const studentAndSeniorsFare = 12.0;
+const detailsDiv = document.getElementById("timesDiv");
 var movieArray = [
   {
     name: "The Dark Knight",
@@ -7,10 +15,10 @@ var movieArray = [
     Description:
       "The plot follows the vigilante Batman, police lieutenant James Gordon, and district attorney Harvey Dent, who form an alliance to dismantle organized crime in Gotham City. Their efforts are derailed by the Joker, an anarchistic mastermind who seeks to test how far Batman will go to save the city from chaos.",
     picture: "/assests/the_dark_knight.jpg",
-    showTimeSection: {
-      date: "1/20/2023",
-      time: { time1: "9am-12pm", time2: "1:30pm-4Pm", tim3: "6pm-8pm" },
-    },
+    showTimeSection: [{
+      date: "1/20/2023",  //  date: ["1/20/2023","1/20/2023","1/20/2023"],  //  length now 9 but with this its more correct
+      time: [  { time: "9am-12pm"},{ time: "1:30pm-4Pm"}, {time: "6pm-8pm" } ] ,
+    }], 
   },
   {
     name: "Tenet",
@@ -19,10 +27,10 @@ var movieArray = [
     Description:
       "Tintin, cartoon character, an intrepid young investigative reporter who stars in a series of popular Belgian comic book albums. Accompanied by his faithful fox terrier, Snowy (Milou in the original French), Tintin travels the world in the service of truth and justice.",
     picture: "/assests/tenet.jpg",
-    showTimeSection: {
+    showTimeSection: [{
       date: "2/20/2023",
-      time: { time1: "9am-12pm", time2: "1:30pm-4Pm", tim3: "6pm-8pm" },
-    },
+      time: [  { time: "9am-12pm"},{ time: "1:30pm-4Pm"}, {time: "6pm-8pm" } ] ,
+    }],
   },
   {
     name: "Venom",
@@ -31,10 +39,10 @@ var movieArray = [
     Description:
       "venom, the poisonous secretion of an animal, produced by specialized glands that are often associated with spines, teeth, stings, or other piercing devices. The venom apparatus may be primarily for killing or paralyzing prey or may be a purely defensive adaptation. Some venoms also function as digestive fluids.",
     picture: "/assests/movie3.jpeg",
-    showTimeSection: {
+    showTimeSection: [{
       date: "3/20/2023",
-      time: { time1: "9am-12pm", time2: "1:30pm-4Pm", tim3: "6pm-8pm" },
-    },
+      time: [  { time: "9am-12pm"},{ time: "1:30pm-4Pm"}, {time: "6pm-8pm" } ] ,
+    }],
   },
 ];
 //funcation
@@ -65,32 +73,88 @@ function setData() {
   console.log("cliked Item:" + data.picture);
   document.getElementById("coverImg").scr = data.picture;
   document.getElementById("description").innerHTML = data.Description;
+  paypalEmailSection.style.display = "none";
+  paypalPasswordSection.style.display = "none";
+  creditcardDiv.style.display = "none";
+  cvvDiv.style.display = "none";
+}
+
+function showPaypal() {
+  var paypal = document.getElementById("paypalRadio");
+  if (paypal.checked == true) {
+    paypalEmailSection.style.display = "block";
+    paypalPasswordSection.style.display = "block";
+    creditcardDiv.style.display = "none";
+    creditcardDiv.style.display = "none";
+  } else {
+    paypalEmailSection.style.display = "none";
+    paypalPasswordSection.style.display = "none";
+  }
+}
+
+function doCredit() {
+  var creditRadio = document.getElementById("creditRadio");
+  if (creditRadio.checked == true) {
+    creditcardDiv.style.display = "block";
+    cvvDiv.style.display = "block";
+    paypalEmailSection.style.display = "none";
+    paypalPasswordSection.style.display = "none";
+  } else {
+    creditcardDiv.style.display = "none";
+    creditcardDiv.style.display = "none";
+  }
+}
+
+function calculate() {
+  console.log("HEre");
+  var genralCount = document.getElementById("generalFare").value;
+  var studentCount = document.getElementById("studentsFare").value;
+  var ticketCount = genralCount + studentCount;
+  var ticketsType = "";
+  if (genralCount > 0) {
+    ticketsType += " General ticket :" + genralCount;
+  }
+  if (studentCount > 0) {
+    ticketsType += " Student And Seniors:" + studentCount;
+  }
+
+  if (generalFare == "") {
+    genralCount = 0.0;
+  }
+  if (studentCount == "") {
+    studentCount = 0.0;
+  }
+  const subTotal =
+    generalFare * genralCount + studentAndSeniorsFare * studentCount;
+  const total = subTotal + 5;
+  document.getElementById("ticketCount").innerHTML = ticketsType;
+  document.getElementById("subtotal").innerHTML =
+    "Price of tickets:$" + subTotal;
+  document.getElementById("total").innerHTML = "Total:$" + total;
 }
 
 
 function setDetails() {
-  console.log(movieArray[0].showTimeSection.time.time1)
-  for (i = 0; i < 3; i++) {
-    for (k = 0; k < 3; k++) {
-      // console.log("I buuuu " + i)
-      // console.log("K buuuu " + k)
+  console.log("sas " +movieArray[0].showTimeSection[0].date)
+  for(i=0;i<movieArray[0].showTimeSection[0].time.length;i++)
+    {
+      const data=movieArray[0].showTimeSection[0].time[i];
+      console.log("its length "+movieArray[0].showTimeSection[0].time.length)
       var button = document.createElement('button');
-      var text = document.createTextNode(movieArray[i].showTimeSection.time[k]);
-      button.appendChild(text);
-      timesDiv.appendChild(button);
+      button.innerHTML=data.time;
+      button.addEventListener('click', () => {
+        location.href='purchase.html'
+      
+      })
+      detailsDiv.appendChild(button);
     }
-    const lineBreak = document.createElement('br');
-    timesDiv.appendChild(lineBreak);
-    
   }
-}
+
+  // href="detail.html">
 
 
-/*
-console.log("I buuuu " + i)
-var button = document.createElement('button');
-var text = document.createTextNode("button");
-button.appendChild(text);
-timesDiv.appendChild(button);
-*/
 
+
+
+
+   
