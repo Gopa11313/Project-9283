@@ -12,9 +12,9 @@
     <nav>
         <ul>
             <li><a href="index.html"> Home</a></li>
-            <li> <a href="#">Now Playing</a></li>
+            <li> <a href="detail.html">Now Playing</a></li>
             <li><img src="/assests/logo.png" alt="Logo image"></li>
-            <li><a href="#">Buy Tickets</a></li>
+            <li><a href="purchase.html">Buy Tickets</a></li>
             <li><a href="#">Location</a></li>
         </ul>
     </nav>
@@ -23,9 +23,10 @@
     <section>
         <p></p>
         <div>
-            <h1>The Witcher</h1>
+            <h1>The Dark Knight</h1>
             <p>Feb: 02 - 26</p>
-            <button>View Details</button>
+            <button id="mainbtn" onclick="mainSectionClick()"><a href="detail.html" style="color: black;">View
+                    Details</a></button>
         </div>
 
     </section>
@@ -43,11 +44,13 @@
         </div>
         <div>
             <img src="/assests/tenet.jpg">
-            <button id="movieBtn" data-movieName="Tenet" type="button">View Details</button>
+            <button id="comingSoonBtn" data-movieName="Tenet" type="button"><a data-movieName="Tenet">Comming
+                    Soon</a></button>
         </div>
         <div>
             <img src="/assests/movie3.jpeg">
-            <button id="movieBtn" data-movieName="Venom" type="button">View Details</button>
+            <button id="comingSoonBtn" data-movieName="Venom" type="button"><a data-movieName="Venom">Comming
+                    Soon</a></button>
         </div>
 
     </section>

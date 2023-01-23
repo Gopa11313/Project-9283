@@ -245,6 +245,14 @@ main#forPurchaseAndDetails>div>p {
     text-align: center;
     padding-top: 1vw;
 }
+#MovieDetails>div{
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+#MovieDetails>div#trailerVideo>iframe{
+    width: 100%;
+}
 
 #SectionDetails {
     display: flex;
@@ -255,6 +263,9 @@ main#forPurchaseAndDetails>div>p {
 #MovieDetails p {
     margin-left: px;
     /* text-align: center; */
+}
+video>source{
+    width: 100%;
 }
 
 
@@ -299,6 +310,10 @@ section>section>div>p {
 #paypalPassword::placeholder {
     color: black;
 }
+#creditCardnum::placeholder,
+#cvv::placeholder {
+    color: black;
+}
 
 #paypalEmailSection,
 #paypalPasswordSection {
@@ -325,4 +340,38 @@ section>section>div>p {
     width: 100%;
     border: 0;
     text-align: center;
+}
+p>span{
+    font-weight: bold;
+    
+}
+.detailsButton{
+    background-color: black;
+    color: white;
+}
+.detailsButton:hover{
+    color: black;
+   background-color : #90EE90;
+}
+#comingSoonBtn{
+    color: black;
+    background-color : #90EE90;
+    margin-top: 10%;
+}
+#comingSoonBtn>a{
+    color: black;
+}
+
+
+button#mainbtn {
+    background-color: white;
+    color: black;
+    margin-top: 10%;
+}
+button#mainbtn:hover {
+    background-color: #90EE90;
+    color: black;
+}
+span{
+    color: red;
 }

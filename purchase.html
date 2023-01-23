@@ -25,10 +25,12 @@
         <div style="flex: 1.5;">
             <label>Tickets</label>
             <div><label>General Admission - $12.00</label>
-                <input id="generalFare" type="number" style="width: 10%;" onchange="calculate()">
+                <input id="generalFare" type="number" style="width: 10%;" min="0" onchange="calculate()">
+                <span id="generalTicketCountSpan"></span>
             </div>
             <div><label>Students and Seniors - $10.00</label>
-                <input id="studentsFare" type="number" style="width: 10%;" onchange="calculate()">
+                <input id="studentsFare" type="number" style="width: 10%;" min="0" onchange="calculate()">
+                <span id="studentsTicketCountSpan"></span>
             </div>
             <label>Pay Information</label>
             <div>
@@ -54,7 +56,7 @@
                     <input type="text" id="creditCardnum" placeholder="Credit Card Number">
                 </div>
 
-                <div id="cvvDiv"><input type="text" placeholder="CVV"></div>
+                <div id="cvvDiv"><input id="cvv" type="text" placeholder="CVV"></div>
             </section>
             <button id="movieBtn" style="width: 40%;"><a>Pay now</a></button>
         </div>

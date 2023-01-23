@@ -8,6 +8,8 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <title>Paramounts Picture</title>
 </head>
+
+<body onload="setDetails()"></body>
 <header>
     <nav>
         <ul>
@@ -23,15 +25,13 @@
 
 <section id="SectionDetails">
     <section id="MovieDetails">
-        <div>
-            <video src="https://www.youtube.com/watch?v=Vhr31GRzG0w" controls> </video>
+        <div id="trailerVideo">
+            <iframe></iframe>
         </div>
         <div>
-            <!-- runTime: "2h 32m",
-            year_Relased: "July 18, 2008", -->
-            <p> 111 22 333</p>
-            <p> 444 </p>
-            <p> 555 </p>
+            <p id="runtime"> 111 22 333</p>
+            <p id="yearReleased"> 444 </p>
+            <p id="rating"> 555 </p>
 
 
         </div>
@@ -39,8 +39,8 @@
     </section>
 
     <section id="MovieTitle">
-        <h1>Title</h1>
-        <p>Descrptiondsakjdhsabkjdhaskjhdaskjhdksjahdsakj</p>
+        <h1 id="title">Title</h1>
+        <p id="description"></p>
 
 
     </section>
@@ -119,10 +119,8 @@
 </footer>
 <script src="app.js"></script>
 
-<body onload="setDetails()">
+
 
 </body>
 
 </html>
-
-
