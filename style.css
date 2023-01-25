@@ -372,6 +372,28 @@ button#mainbtn:hover {
     background-color: #90EE90;
     color: black;
 }
-span{
+/* span{
     color: red;
+} */
+#timesDiv{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+} 
+.detailedTimeClass{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+.detailedTimeClass>button{
+    margin: 10px;
+}
+#generalFare::placeholder, #studentsFare::placeholder{
+    color: red;
+}
+#active{
+    color: green;
 }

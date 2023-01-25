@@ -14,9 +14,9 @@
         <nav>
             <ul>
                 <li><a href="index.html"> Home</a></li>
-                <li> <a href="#">Now Playing</a></li>
+                <li> <a href="detail.html">Now Playing</a></li>
                 <li><img src="/assests/logo.png" alt="Logo image"></li>
-                <li><a href="#">Buy Tickets</a></li>
+                <li><a href="purchase.html" id="active">Buy Tickets</a></li>
                 <li><a href="#">Location</a></li>
             </ul>
         </nav>
@@ -25,12 +25,10 @@
         <div style="flex: 1.5;">
             <label>Tickets</label>
             <div><label>General Admission - $12.00</label>
-                <input id="generalFare" type="number" style="width: 10%;" min="0" onchange="calculate()">
-                <span id="generalTicketCountSpan"></span>
+                <input id="generalFare" type="number" style="width: 10%; " min="0" onchange="calculate()">
             </div>
             <div><label>Students and Seniors - $10.00</label>
                 <input id="studentsFare" type="number" style="width: 10%;" min="0" onchange="calculate()">
-                <span id="studentsTicketCountSpan"></span>
             </div>
             <label>Pay Information</label>
             <div>
@@ -41,9 +39,12 @@
             <section id="paypalSection">
                 <div id="paypalEmailSection">
                     <input type="email" id="paypalEmail" placeholder="Paypal Email">
+                    <span id="paypalEmailSpan" style="color: red; font-size:15px;"></span>
                 </div>
+
                 <div id="paypalPasswordSection">
-                    <input type="email" id="paypalPassword" placeholder="Paypal Password">
+                    <input type="password" id="paypalPassword" placeholder="Paypal Password">
+                    <span id="paypalPasswordSpan" style="color: red; font-size:15px;"></span>
                 </div>
             </section>
             <div>
@@ -53,12 +54,17 @@
             </div>
             <section id="creditCardSection">
                 <div id="creditcardDiv">
-                    <input type="text" id="creditCardnum" placeholder="Credit Card Number">
+                    <input type="text" id="creditCardnum" placeholder="Credit Card Number" maxlength="16">
+                    <span id="creditCardnumSpan" style="color: red; font-size:15px;"></span>
                 </div>
 
-                <div id="cvvDiv"><input id="cvv" type="text" placeholder="CVV"></div>
+                <div id="cvvDiv"><input id="cvv" type="text" placeholder="CVV" maxlength="3">
+                    <span id="cvvSpan" style="color: red; font-size:15px;"></span>
+                </div>
+                <span id="cradioCheckButtonErrorMsg" style="margin-top: 20px;"></span>
             </section>
-            <button id="movieBtn" style="width: 40%;"><a>Pay now</a></button>
+
+            <button id="movieBtn" style="width: 40%;" onclick="purchase()"><a>Pay now</a></button>
         </div>
         <div id="secondDiv">
             <img id="coverImg">
@@ -71,7 +77,7 @@
             <p id="ticketCount">ticket types and quantity:0</p>
             <p>General Admission $12.00 & Students and Seniors $10.00</p>
             <p id="subtotal">subtotal:$00</p>
-            <p>Fees:$5</p>
+            <p id="tax">Tax(13%):$00</p>
             <p id="total">total to pay: $00</p>
 
         </div>

@@ -5,7 +5,7 @@ var paypalPasswordSection = document.getElementById("paypalPasswordSection");
 var creditcardDiv = document.getElementById("creditcardDiv");
 var cvvDiv = document.getElementById("cvvDiv");
 const generalFare = 12.0;
-const studentAndSeniorsFare = 12.0;
+const studentAndSeniorsFare = 10.0;
 const detailsDiv = document.getElementById("timesDiv");
 var movieArray = [
   {
@@ -25,6 +25,10 @@ var movieArray = [
           { time: "1:30pm-4Pm" },
           { time: "6pm-8pm" },
         ],
+      },
+      {
+        date: "2/01/2023", //  date: ["1/20/2023","1/20/2023","1/20/2023"],  //  length now 9 but with this its more correct
+        time: [{ time: "10am-2pm" }, { time: "2pm-8Pm" }, { time: "6pm-8pm" }],
       },
     ],
   },
@@ -159,6 +163,7 @@ function calculate() {
   console.log("HEre");
   var genralCount = document.getElementById("generalFare").value;
   var studentCount = document.getElementById("studentsFare").value;
+  var taxElement = document.getElementById("tax");
   var ticketCount = genralCount + studentCount;
   var ticketsType = "";
   if (genralCount > 0) {
@@ -176,10 +181,13 @@ function calculate() {
   }
   const subTotal =
     generalFare * genralCount + studentAndSeniorsFare * studentCount;
-  const total = subTotal + 5;
+
+  var tax = subTotal * 0.13;
   document.getElementById("ticketCount").innerHTML = ticketsType;
   document.getElementById("subtotal").innerHTML =
     "Price of tickets:$" + subTotal;
+  taxElement.innerHTML = "Tax(13%): $" + tax.toFixed(2);
+  const total = parseFloat(subTotal) + parseFloat(tax.toFixed(2));
   document.getElementById("total").innerHTML = "Total:$" + total;
 }
 
@@ -190,7 +198,6 @@ function setDetails() {
   const year_Relased = document.getElementById("yearReleased");
 
   const rating = document.getElementById("rating");
-  // var data = JSON.parse(localStorage.getItem("clickedMovie"));
   const data = movieArray[0];
   const video = document.querySelector("iframe");
   video.src = data.video;
@@ -203,17 +210,23 @@ function setDetails() {
   rating.innerHTML = "<span>Rating:</span>" + data.rating;
   document.getElementById("title").innerHTML = data.name;
   document.getElementById("description").innerHTML = data.Description;
+  for (var j = 0; j < movieArray[0].showTimeSection.length; j++) {
+    var divSection = document.createElement("div");
+    divSection.classList.add("detailedTimeClass");
+    for (var i = 0; i < movieArray[0].showTimeSection[j].time.length; i++) {
+      console.log("This is i " + i);
+      console.log(movieArray[0].showTimeSection[j].time[i]);
+      const data = movieArray[0].showTimeSection[j].time[i];
 
-  for (i = 0; i < movieArray[0].showTimeSection[0].time.length; i++) {
-    const data = movieArray[0].showTimeSection[0].time[i];
-
-    var button = document.createElement("button");
-    button.className = "detailsButton";
-    button.innerHTML = data.time;
-    button.addEventListener("click", () => {
-      location.href = "purchase.html";
-    });
-    detailsDiv.appendChild(button);
+      var button = document.createElement("button");
+      button.className = "detailsButton";
+      button.innerHTML = data.time;
+      button.addEventListener("click", () => {
+        location.href = "purchase.html";
+      });
+      divSection.appendChild(button);
+      detailsDiv.appendChild(divSection);
+    }
   }
 }
 
@@ -221,5 +234,63 @@ function mainSectionClick() {
   localStorage.setItem("clickedMovie", JSON.stringify(movieArray[0]));
 }
 
-function validation() {}
-// href="detail.html">
+function purchase() {
+  var flag = true;
+  var generalFare = document.getElementById("generalFare");
+  var studentsFare = document.getElementById("studentsFare");
+
+  var paypalEmail = document.getElementById("paypalEmail");
+  var paypalPassword = document.getElementById("paypalPassword");
+
+  var creditCardnum = document.getElementById("creditCardnum");
+  var cvv = document.getElementById("cvv");
+
+  //span
+  var paypalEmailSpan = document.getElementById("paypalEmailSpan");
+  var paypalPasswordSpan = document.getElementById("paypalPasswordSpan");
+
+  var creditCardnumSpan = document.getElementById("creditCardnumSpan");
+  var cvvSpan = document.getElementById("cvvSpan");
+
+  if (generalFare.value <= 0 || generalFare == "") {
+    generalFare.setAttribute("placeholder", "*");
+    flag = false;
+  }
+  if (studentsFare.value <= 0 || studentsFare == "") {
+    studentsFare.setAttribute("placeholder", "*");
+    flag = false;
+  }
+
+  if (document.getElementById("paypalRadio").checked == true) {
+    if (paypalEmail.value == "") {
+      paypalEmailSpan.innerHTML = "You must enter an email";
+      flag = false;
+    }
+    if (paypalPassword.value == "") {
+      paypalPasswordSpan.innerHTML = "You must enter password";
+      flag = false;
+    }
+  }
+  if (document.getElementById("creditRadio").checked == true) {
+    if (creditCardnum.value == "") {
+      creditCardnumSpan.innerHTML = "You must enter a credit card number";
+      flag = false;
+    }
+    if (cvv.value == "") {
+      cvvSpan.innerHTML = "You must enter cvv number";
+      flag = false;
+    }
+  }
+  if (
+    document.getElementById("creditRadio").checked == false && //sildim
+    document.getElementById("paypalRadio").checked == false
+  ) {
+    flag = false;
+    document.getElementById("cradioCheckButtonErrorMsg").innerHTML =
+      "Please select one payment Method";
+  } else {
+    if (flag == true) {
+      alert("Thank You for Purchasing Movie Tickets, have a good time.");
+    }
+  }
+}
